@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: order-service
+
+  #禁止配置中心的配置将客户端配置覆盖掉
+  cloud:
+    config:
+      override-none: true
+
+server:
+  port: 8201
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
+
+feign:
+  httpclient:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
